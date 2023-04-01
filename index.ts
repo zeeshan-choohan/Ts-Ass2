@@ -126,11 +126,13 @@ abstract class Vehicle {
   class Motorcycle extends Vehicle {
     private engineSize: number;
     private chassisNumber: number;
+    private bikeColor: string;
   
-    constructor(make: string, model: string, year: number,rented : boolean, engineSize: number,chassisNumber: number,returned:boolean) {
+    constructor(make: string, model: string, year: number,rented : boolean, engineSize: number,chassisNumber: number,returned:boolean,bikeColor: string) {
       super(make, model, year,rented,returned);
       this.engineSize = engineSize;
       this.chassisNumber = chassisNumber;
+      this.bikeColor = bikeColor;
     }
   
     rentalRate(): number {
@@ -144,7 +146,9 @@ abstract class Vehicle {
     getchassisNumber(): number {
         return this.chassisNumber;
       }
-    
+      bike_Color(): string {
+        return this.bikeColor;
+      }
   }
   
   // Example usage of Vehicle Car
@@ -209,3 +213,33 @@ abstract class Vehicle {
 <th>${truck.isReturned()}</th>
 </tr>
   </table>`) 
+
+  // Example usage of Vehicle Truck
+  const bike = new Motorcycle('HONDA', 'CD-70', 2023,true,70, 121,false,'Red');
+
+ document.write("<h1>Category : Motorcycle </h1>")
+  document.write(`<table border="2px solid balck">
+<tr>
+<th>Company</th>
+<th>Model</th>
+<th>Year</th>
+<th>Color</th>
+<th>Rent of Vehicle</th>
+<th>Engine Size</th>
+<th>Chassis Number</th>
+<th>Rented</th>
+<th>Returned</th>
+</tr>
+
+<tr>
+<th>${bike.getMake()}</th>
+<th>${bike.getModel()}</th>
+<th>${bike.bike_Color()}</th>
+<th>${bike. getYear()}</th>
+<th>${bike.rentalRate()}</th>
+<th>${bike.getEngineSize()}</th>
+<th>${bike.getchassisNumber()}</th>
+<th>${bike.isRented()}</th>
+<th>${bike.isReturned()}</th>
+</tr>
+  </table>`)
